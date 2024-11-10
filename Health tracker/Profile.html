@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack - Profile</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #4d94ff;
+        }
+        .profile-container {
+            background-color: #ffffff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .profile-group {
+            margin-bottom: 20px;
+        }
+        .profile-label {
+            display: block;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        .profile-value {
+            font-size: 1.1em;
+            color: #333;
+        }
+        .edit-btn {
+            padding: 12px 25px;
+            background-color: #4d94ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+        .edit-btn:hover {
+            background-color: #3385e2;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <h1>HealthTrack - Profile</h1>
+    <div class="profile-container">
+        <div class="profile-group">
+            <label class="profile-label" for="name">Full Name:</label>
+            <div class="profile-value" id="name">Amanda</div>
+        </div>
+        <div class="profile-group">
+            <label class="profile-label" for="dob">Date of Birth:</label>
+            <div class="profile-value" id="dob">January 1, 1990</div>
+        </div>
+        <div class="profile-group">
+            <label class="profile-label" for="email">Email:</label>
+            <div class="profile-value" id="email">amanda@gmail.com</div>
+        </div>
+        <div class="profile-group">
+            <label class="profile-label" for="phone">Phone:</label>
+            <div class="profile-value" id="phone">+60 234 567 890</div>
+        </div>
+        <h2>Emergency Contact</h2>
+        <div class="profile-group">
+            <label class="profile-label" for="emergency-name">Name:</label>
+            <div class="profile-value" id="emergency-name">Jane Doe</div>
+        </div>
+        <div class="profile-group">
+            <label class="profile-label" for="emergency-phone">Phone:</label>
+            <div class="profile-value" id="emergency-phone">+1 234 567 891</div>
+        </div>
+        <h2>Health Insurance Information</h2>
+        <div class="profile-group">
+            <label class="profile-label" for="insurance-provider">Insurance Provider:</label>
+            <div class="profile-value" id="insurance-provider">HealthCare Insurance Co.</div>
+        </div>
+        <div class="profile-group">
+            <label class="profile-label" for="policy-number">Policy Number:</label>
+            <div class="profile-value" id="policy-number">123-456-789</div>
+        </div>
+        <button class="edit-btn" onclick="window.location.href='Personal details.html'">Edit Profile</button>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack - Personal Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #4d94ff;
+        }
+        form {
+            background-color: #ffffff;
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 8px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            margin-top: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus {
+            border-color: #4d94ff;
+            outline: none;
+        }
+        button {
+            padding: 12px 25px;
+            background-color: #4d94ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1.1em;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #3385e2;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #888;
+        }
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        h2 {
+            color: #333;
+            margin-top: 30px;
+            font-size: 1.5em;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #555;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>HealthTrack - Personal Details</h1>
+    <form id="personal-details-form">
+        <div class="form-group">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+            <div class="error" id="name-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+            <div class="error" id="dob-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <div class="error" id="email-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <div class="error" id="phone-error"></div>
+        </div>
+        <h2>Emergency Contact</h2>
+        <div class="form-group">
+            <label for="emergency-name">Name:</label>
+            <input type="text" id="emergency-name" name="emergency-name" required>
+            <div class="error" id="emergency-name-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="emergency-phone">Phone:</label>
+            <input type="tel" id="emergency-phone" name="emergency-phone" required>
+            <div class="error" id="emergency-phone-error"></div>
+        </div>
+        <h2>Health Insurance Information</h2>
+        <div class="form-group">
+            <label for="insurance-provider">Insurance Provider:</label>
+            <input type="text" id="insurance-provider" name="insurance-provider" required>
+            <div class="error" id="insurance-provider-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="policy-number">Policy Number:</label>
+            <input type="text" id="policy-number" name="policy-number" required>
+            <div class="error" id="policy-number-error"></div>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    
+
+    <script>
+        // Form validation function
+        function validateForm(event) {
+            event.preventDefault();  // Prevent form submission
+            
+            // Clear previous error messages
+            let errors = document.querySelectorAll('.error');
+            errors.forEach(error => error.innerHTML = '');
+
+            let isValid = true;
+
+            // Validate Name
+            const name = document.getElementById('name').value;
+            if (!name) {
+                document.getElementById('name-error').textContent = 'Name is required.';
+                isValid = false;
+            }
+
+            // Validate Date of Birth
+            const dob = document.getElementById('dob').value;
+            if (!dob) {
+                document.getElementById('dob-error').textContent = 'Date of Birth is required.';
+                isValid = false;
+            }
+
+            // Validate Email
+            const email = document.getElementById('email').value;
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!email || !emailPattern.test(email)) {
+                document.getElementById('email-error').textContent = 'Please enter a valid email address.';
+                isValid = false;
+            }
+
+            // Validate Phone Number
+            const phone = document.getElementById('phone').value;
+            const phonePattern = /^[0-9]{10}$/;
+            if (!phone || !phonePattern.test(phone)) {
+                document.getElementById('phone-error').textContent = 'Please enter a valid phone number.';
+                isValid = false;
+            }
+
+            // Validate Emergency Contact Name
+            const emergencyName = document.getElementById('emergency-name').value;
+            if (!emergencyName) {
+                document.getElementById('emergency-name-error').textContent = 'Emergency contact name is required.';
+                isValid = false;
+            }
+
+            // Validate Emergency Contact Phone
+            const emergencyPhone = document.getElementById('emergency-phone').value;
+            if (!emergencyPhone || !phonePattern.test(emergencyPhone)) {
+                document.getElementById('emergency-phone-error').textContent = 'Please enter a valid emergency contact phone number.';
+                isValid = false;
+            }
+
+            // Validate Insurance Provider
+            const insuranceProvider = document.getElementById('insurance-provider').value;
+            if (!insuranceProvider) {
+                document.getElementById('insurance-provider-error').textContent = 'Insurance provider is required.';
+                isValid = false;
+            }
+
+            // Validate Policy Number
+            const policyNumber = document.getElementById('policy-number').value;
+            if (!policyNumber) {
+                document.getElementById('policy-number-error').textContent = 'Policy number is required.';
+                isValid = false;
+            }
+
+            if (isValid) {
+               
+                alert("Form submitted successfully!");
+            }
+        }
+
+    
+        document.getElementById('personal-details-form').addEventListener('submit', validateForm);
+    </script>
+</body>
+</html>

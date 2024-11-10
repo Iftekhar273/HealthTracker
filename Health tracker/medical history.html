@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack - Medical History Summary</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fb;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #4C6EF5;
+            font-size: 2.5rem;
+            margin: 40px 0;
+        }
+        .timeline {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        .visit {
+            border-left: 3px solid #4C6EF5;
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .visit::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #4C6EF5;
+            border-radius: 50%;
+            position: absolute;
+            left: -6px;
+            top: 20px;
+        }
+        .visit-date {
+            font-weight: 600;
+            color: #4C6EF5;
+            font-size: 1.2rem;
+        }
+        .visit p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #555;
+        }
+        .visit-details {
+            margin-top: 10px;
+            background: #e8f0fe;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        .view-details {
+            color: #4C6EF5;
+            cursor: pointer;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .view-details:hover {
+            color: #1e3c72;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HealthTrack - Medical History Summary</h1>
+
+    <div class="timeline">
+        <div class="visit">
+            <p class="visit-date">Jan 10, 2023</p>
+            <div class="visit-details">
+                <p><strong>Doctor:</strong> Dr. William Green</p>
+                <p>Check-up for cold symptoms. Prescribed antibiotics and rest.</p>
+            </div>
+        </div>
+        <div class="visit">
+            <p class="visit-date">Feb 15, 2023</p>
+            <div class="visit-details">
+                <p><strong>Doctor:</strong> Dr. Rachel Adams</p>
+                <p>Annual health examination. Received flu vaccine.</p>
+            </div>
+        </div>
+        <div class="visit">
+            <p class="visit-date">Mar 20, 2023</p>
+            <div class="visit-details">
+                <p><strong>Doctor:</strong> Dr. James White</p>
+                <p>Consultation for allergy. Recommended antihistamines.</p>
+            </div>
+        </div>
+        <div class="visit">
+            <p class="visit-date">Apr 5, 2023</p>
+            <div class="visit-details">
+                <p><strong>Doctor:</strong> Dr. Sophia Brown</p>
+                <p>Follow-up for blood test. Cholesterol levels normal.</p>
+            </div>
+        </div>
+        <div class="visit">
+            <p class="visit-date">Jul 22, 2023</p>
+            <div class="visit-details">
+                <p><strong>Doctor:</strong> Dr. Emily Chen</p>
+                <p>Initiated physical therapy for knee pain, recommended exercises.</p>
+                <p class="view-details">View Details</p>
+            </div>
+        </div>
+        <div class="visit">
+            <p class="visit-date">Aug 10, 2023</p>
+            <div class="visit-details">
+                <p><strong>Doctor:</strong> Dr. John Carter</p>
+                <p>Prescribed medication for allergy relief, advised regular monitoring.</p>
+                <p class="view-details">View Details</p>
+            </div>
+        </div>
+        <div class="visit">
+            <p class="visit-date">Sep 15, 2023</p>
+            <div class="visit-details">
+                <p><strong>Doctor:</strong> Dr. Sarah Lee</p>
+                <p>Follow-up on blood pressure management with dietary adjustments.</p>
+                <p class="view-details">View Details</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle "View Details" functionality
+        document.querySelectorAll('.view-details').forEach(item => {
+            item.addEventListener('click', event => {
+                alert('Viewing details... (This would typically open a modal or navigate to a detailed view)');
+            });
+        });
+    </script>
+
+</body>
+</html>

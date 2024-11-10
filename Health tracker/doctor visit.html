@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthTrack - Doctor Visit Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fb;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #4C6EF5;
+            margin-top: 50px;
+            font-size: 2.5rem;
+        }
+        form {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            color: #333;
+            transition: all 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        textarea:focus {
+            border-color: #4C6EF5;
+            outline: none;
+        }
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        button {
+            background-color: #4C6EF5;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #1e3c72;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: #4C6EF5;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HealthTrack - Doctor Visit Details</h1>
+
+    <form id="visitForm">
+        <div class="form-group">
+            <label for="visit-date">Visit Date:</label>
+            <input type="date" id="visit-date" name="visit-date" required>
+            <div id="visit-date-error" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="doctor-name">Doctor's Name and Specialization:</label>
+            <input type="text" id="doctor-name" name="doctor-name" required>
+            <div id="doctor-name-error" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="purpose">Purpose of Visit:</label>
+            <textarea id="purpose" name="purpose" required></textarea>
+            <div id="purpose-error" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="diagnosis">Diagnosis:</label>
+            <textarea id="diagnosis" name="diagnosis" required></textarea>
+            <div id="diagnosis-error" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="medications">Prescribed Medications:</label>
+            <textarea id="medications" name="medications" required></textarea>
+            <div id="medications-error" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="followup">Follow-up Advice/Instructions:</label>
+            <textarea id="followup" name="followup" required></textarea>
+            <div id="followup-error" class="error-message"></div>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+
+
+    <script>
+        // JavaScript for form validation
+        document.getElementById("visitForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission for validation
+
+            let formIsValid = true;
+
+            // Clear previous error messages
+            const errorMessages = document.querySelectorAll(".error-message");
+            errorMessages.forEach((msg) => msg.textContent = "");
+
+            // Validate Visit Date
+            const visitDate = document.getElementById("visit-date").value;
+            if (!visitDate) {
+                formIsValid = false;
+                document.getElementById("visit-date-error").textContent = "Visit date is required.";
+            }
+
+            // Validate Doctor's Name
+            const doctorName = document.getElementById("doctor-name").value;
+            if (!doctorName) {
+                formIsValid = false;
+                document.getElementById("doctor-name-error").textContent = "Doctor's name and specialization are required.";
+            }
+
+            // Validate Purpose of Visit
+            const purpose = document.getElementById("purpose").value;
+            if (!purpose) {
+                formIsValid = false;
+                document.getElementById("purpose-error").textContent = "Purpose of visit is required.";
+            }
+
+            // Validate Diagnosis
+            const diagnosis = document.getElementById("diagnosis").value;
+            if (!diagnosis) {
+                formIsValid = false;
+                document.getElementById("diagnosis-error").textContent = "Diagnosis is required.";
+            }
+
+            // Validate Medications
+            const medications = document.getElementById("medications").value;
+            if (!medications) {
+                formIsValid = false;
+                document.getElementById("medications-error").textContent = "Prescribed medications are required.";
+            }
+
+            // Validate Follow-up Instructions
+            const followup = document.getElementById("followup").value;
+            if (!followup) {
+                formIsValid = false;
+                document.getElementById("followup-error").textContent = "Follow-up instructions are required.";
+            }
+
+            // If form is valid, alert the user
+            if (formIsValid) {
+                alert("Form submitted successfully!");
+                
+            }
+        });
+    </script>
+
+</body>
+</html>
